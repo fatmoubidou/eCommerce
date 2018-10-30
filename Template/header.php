@@ -19,8 +19,11 @@
 
 <body>
   <!-- Header -->
-  <header class="jumbotron jumbotron-fluid">
+  <header class="jumbotron jumbotron-fluid p-1">
       <div class="container">
+        <div class="d-flex justify-content-end p-2 bd-highlight">
+          <button type="button" class="btn btn-secondary">Déconnexion</button>
+        </div>
         <h1 class="display-4">Ma petite boutique</h1>
         <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
         <?php
