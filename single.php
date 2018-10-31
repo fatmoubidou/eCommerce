@@ -1,5 +1,8 @@
 <?php
   session_start();
+  if (empty($_SESSION)) {
+    header("Location: index.php");
+  }
   //var_dump($_SESSION);
   include("Template/header.php");
   require "Model/function.php";
@@ -9,8 +12,7 @@
   //var_dump($single);
 ?>
 
- <main class="container">
-
+ <main class="container my-4">
   <div class="row">
     <div class="col-9 container">
       <div class="row">

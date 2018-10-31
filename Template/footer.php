@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="jumbotron jumbotron-fluid">
+<footer class="jumbotron jumbotron-fluid mb-0 h-25">
    <div class="container">
      <p class="lead text-center">Tous droits réservés.</p>
    </div>
