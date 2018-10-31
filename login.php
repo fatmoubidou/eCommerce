@@ -24,7 +24,7 @@ foreach ($users as $key => $user) {
     // return;
   }
 }
-header("Location: index.php?msg=Erreur de l\'identification");
+header("Location: index.php?msg=Erreur d'identification");
 exit; // important : stop l'execution du script
 
 //var_dump($_POST);

@@ -4,7 +4,7 @@
 //var_dump($_SESSION);
 
 ?>
-<aside class="col-4">
+<aside class="col-3">
   <div class="card" >
     <img class="card-img-top" src="tile-wide.png" alt="photo de profil">
     <div class="card-body">

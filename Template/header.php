@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js h-100" lang="">
 
 <head>
   <meta charset="utf-8">
@@ -17,18 +17,20 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
+<body class="h-100">
   <!-- Header -->
-  <header class="jumbotron jumbotron-fluid">
+  <header class="jumbotron jumbotron-fluid p-1 mb-0 h-25">
       <div class="container">
+        <div class="d-flex justify-content-end p-2 bd-highlight">
+          <?php
+              if (isset($_SESSION)) {
+                echo "<a href='logout.php' class='btn btn-secondary'>Déconnexion</a>";
+              }
+           ?>
+
+        </div>
         <h1 class="display-4">Ma petite boutique</h1>
         <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-        <?php
-        if (isset($_GET["msg"])) {
-          $message = $_GET["msg"];
-          echo "<p>Attention : ". $message ."</p>";
-        }
-          //var_dump($_GET);
-         ?>
+
       </div>
    </header>
