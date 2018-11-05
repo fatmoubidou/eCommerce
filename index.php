@@ -2,7 +2,7 @@
   include("Template/header.php");
 ?>
 
-<main class="container d-flex justify-content-center align-items-center h-50">
+  <div class="container d-flex justify-content-center align-items-center height50vh">
     <!-- Formulaire de connexion -->
     <form class="needs-validation w-50 text-right" action="login.php" method="post" novalidate >
       <div class="form-group text-left">
@@ -26,16 +26,16 @@
       <button type="submit" class="btn btn-primary w-25">Me connecter</button>
       <?php
       if (isset($_GET["msg"])) {
-        $message = $_GET["msg"];
+        $message = htmlspecialchars($_GET["msg"]);
         echo "<div class='alert alert-warning mt-4 text-center ' role='alert'>
-                ".htmlspecialchars($message)."
+                ".$message."
               </div>";
       }
         //var_dump($_GET);
        ?>
     </form>
+  </div>
 
-</main>
 
 <?php
   include("Template/footer.php");
