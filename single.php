@@ -12,7 +12,6 @@
   //var_dump($single);
 ?>
 
- <main class="container my-4">
   <div class="row">
     <div class="col-9 container">
       <div class="row">
@@ -54,7 +53,7 @@
       include("Template/aside.php");
     ?>
   </div>
-</main>
+
 
  <?php
    include("Template/footer.php");
