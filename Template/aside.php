@@ -25,7 +25,12 @@ session_start();
       <h5 class="card-title">Mon petit panier</h5>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><i class="fas fa-shopping-bag"></i>  <?php echo count($_SESSION["basket"]); ?>  articles</li>
+      <li class="list-group-item"><i class="fas fa-shopping-bag"></i> Nombre d'articles : <?php echo count($_SESSION["basket"]); ?></li>
+      <?php foreach ($_SESSION["basket"] as $key => $value) { ?>
+        <li class="list-group-item"><?php echo $value["name"]; ?> - <?php echo $value["quantite"] ?> x <?php echo $value["price"]; ?> €</li>
+        <?php $total += $value["price"] * $value["quantite"]; ?>
+      <?php } ?>
+      <li class="list-group-item">Total : <?php echo $total; ?> €</li>
       <li class="list-group-item"><a href="cart.php" class="btn btn-primary">Voir le panier</a></li>
     </ul>
   </div>
