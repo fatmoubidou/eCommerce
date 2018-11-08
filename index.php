@@ -44,25 +44,25 @@
           <form class="needs-validation text-right" action="register.php" method="post" novalidate >
             <div class="form-group text-left">
               <!-- <label for="exampleInputName">Votre nom</label> -->
-              <input type="input" class="form-control" id="" name="nameRegister" placeholder="Votre nom" required>
-              <div class="invalid-feedback">
+              <input type="input" class="form-control" id="" name="nameRegister" placeholder="Votre nom" >
+              <!-- <div class="invalid-feedback">
                 Veuillez saisir votre nom.
-              </div>
+              </div> -->
             </div>
             <div class="form-group text-left">
               <!-- <label for="exampleInputPassword1">Votre mot de passe</label> -->
-              <input type="password" class="form-control" id="" name="passwordRegister" required placeholder="Votre mot de passe" >
+              <input type="password" class="form-control" id="" name="passwordRegister"  placeholder="Votre mot de passe" >
               <small id="passwordHelp" class="form-text text-muted text-right">Au minimum 6 caractères, une lettre majuscule et un chiffre.</small>
-              <div class="invalid-feedback">
+              <!-- <div class="invalid-feedback">
                 Veuillez saisir votre mot de passe.
-              </div>
+              </div> -->
             </div>
             <div class="form-group text-left">
               <!-- <label for="exampleInputPassword2">Confirmer votre mot de passe</label> -->
-              <input type="password" class="form-control" id="" name="confirm_passwordRegister" required placeholder="Confirmer votre mot de passe" >
-              <div class="invalid-feedback">
+              <input type="password" class="form-control" id="" name="confirm_passwordRegister"  placeholder="Confirmer votre mot de passe" >
+              <!-- <div class="invalid-feedback">
                 Veuillez confirmer votre mot de passe.
-              </div>
+              </div> -->
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">

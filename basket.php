@@ -41,12 +41,17 @@ switch ($action) {
 
             //addProduct($value["name"],$value["price"],1);
             //var_dump($_SESSION["basket"]);
-        header("Location: single.php?id=".$product["id"]."");
+        header("Location: single.php?id=".$product["id"]."&msg=succes");
         exit;
         break;
     case "delete":
         unset($_SESSION["basket"][$cle]); //supprime la ligne article
-        header("Location: cart.php");
+        if (count($_SESSION["basket"])>0) {
+          header("Location: cart.php?msg=succes");
+        }else {
+          header("Location: cart.php");
+        }
+
         exit;
         break;
     case "update":

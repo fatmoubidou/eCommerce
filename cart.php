@@ -7,6 +7,7 @@
   //var_dump($_SESSION);
   include("Template/header.php");
   //var_dump($products);
+  $total = 0;
 ?>
 
 
@@ -15,7 +16,18 @@
       <div class="row">
         <div class="container">
           <h2>Votre panier d'achat</h2>
-
+            <?php
+              if (isset($_GET["msg"]) && $_GET["msg"] === "succes") {
+                echo "<div class='alert alert-success' role='alert'>
+                        Vous avez supprimé un article du panier.
+                      </div>";
+              }
+             ?>
+             <?php if (count($_SESSION["basket"]) === 0) { ?>
+               <div class='alert alert-success' role='alert'>
+                 Le panier est vide.
+               </div>
+            <?php   }else { ?>
             <table class="table table-hover">
               <thead>
                 <tr class="text-center">
@@ -53,6 +65,7 @@
               </tr>
             </tfoot>
           </table>
+          <?php } ?>
         </div>
       </div>
     </div>

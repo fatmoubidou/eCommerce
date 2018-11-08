@@ -6,4 +6,16 @@ function cleanFormEntries($form) {
   }
   return $form;
 }
+
+function valueFormEntries($form) {
+  foreach ($form as $key => $value) {
+    if (!$value) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
+}
  ?>
