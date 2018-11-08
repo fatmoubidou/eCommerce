@@ -1,7 +1,8 @@
 <?php
   session_start();
-  if (empty($_SESSION)) {
+  if (!isset($_SESSION["user"])) {
     header("Location: index.php");
+    exit;
   }
   //var_dump($_SESSION);
   include("Template/header.php");
@@ -32,8 +33,8 @@
                         <p class='card-text text-left'>Catégorie " . ucfirst($value["category"]) . " </p>
                         <h3 class='card-text font-weight-bold'>Prix conseillé : " . $value["price"] . " €</h3>";
                         // Test le stock
-                        if ($value["stock"] === true) {
-                          echo "<a href='#' class='btn btn-primary w-50'>Ajouter au panier</a>";
+                        if ($value["stock"]) {
+                          echo "<a href='basket.php?action=add&id=". $value["id"] ."' class='btn btn-primary w-50'>Ajouter au panier</a>";
                         }else{
                           echo "<div class='alert alert-warning' role='alert'>
                                   Cet article est momentanément indisponible.

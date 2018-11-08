@@ -1,7 +1,8 @@
 <?php
   session_start();
-  if (empty($_SESSION)) {
+  if (!isset($_SESSION["user"])) { //teste si la session User existe
     header("Location: index.php");
+    exit;
   }
   //var_dump($_SESSION);
   include("Template/header.php");
@@ -16,17 +17,19 @@
       <div class="row">
         <?php
         foreach ($products as $key => $value) {
-          echo "<div class='col-4'>
-                  <div class='card mb-3' >
-                    <img class='card-img-top' src='tile.png' alt='" . $value["name"] . " image'>
-                    <div class='card-body'>
-                      <h5 class='card-title'>" . $value["name"] . "</h5>
-                      <p class='card-text text-right'>" . $value["price"] . " €</p>
-                      <a href='single.php?id=" . htmlspecialchars($value["id"]) . "' class='btn btn-primary'>Voir le détails</a>
+        ?>
+                <div class="col-4">
+                  <div class="card mb-3" >
+                    <img class="card-img-top" src="tile.png" alt="<?php echo $value["name"] ?>">
+                    <div class="card-body">
+                      <h5 class="card-title"> <?php echo $value["name"] ?></h5>
+                      <p class="card-text text-right"><?php echo  $value["price"] ?> € </p>
+                      <a href="single.php?id=<?php echo $value["id"] ?>" class="btn btn-primary">Voir le détails</a>
                     </div>
                   </div>
-                </div>";
-        }
+                </div>
+        <?php
+          }
         ?>
       </div>
     </div>

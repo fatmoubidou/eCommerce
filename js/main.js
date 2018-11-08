@@ -2,7 +2,13 @@
 (function() {
   'use strict';
   window.addEventListener('load', function() {
-    document.getElementById("exampleInputPassword1").value =""; 
+    var pass = document.querySelectorAll('input[type=password]');
+    pass.forEach(function(Item) {
+      Item.value = "";
+    });
+
+
+    //document.getElementByType("password").value ="";
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.getElementsByClassName('needs-validation');
     // Loop over them and prevent submission
