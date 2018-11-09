@@ -9,7 +9,7 @@ function cleanFormEntries($form) {
 
 function valueFormEntries($form) {
   foreach ($form as $key => $value) {
-    if (!$value) {
+    if (!$value || $value == "0") {
       $result = false;
       return $result;
       exit;

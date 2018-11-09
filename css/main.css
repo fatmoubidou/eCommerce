@@ -97,8 +97,8 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-.height50vh{
-  height: 50vh;
+.mheight50vh{
+  min-height: 50vh;
 }
 
 
