@@ -10,12 +10,15 @@ function cleanFormEntries($form) {
 function valueFormEntries($form) {
   foreach ($form as $key => $value) {
     if (!$value) {
-      return false;
+      $result = false;
+      return $result;
+      exit;
     }
     else {
-      return true;
+      $result= true;
     }
-  }
 
+  }
+return $result;
 }
  ?>

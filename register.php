@@ -4,49 +4,55 @@ require "Model/function.php";
 require "Service/formCleaner.php";
 require "Service/login.php";
 
-//Vérifie si le formulaire est rempli
-if (!empty($_POST)) {
-  if(!valueFormEntries($_POST)){ //teste la value de tous les champs du form
-    header("Location: index.php?erreur=1"); // si un seul champs est vide on retourne une erreur
-    exit;
+$erreur = "";
+if (!empty($_POST)) { //si $_POST existe
+  if(valueFormEntries($_POST) === false){ ////Vérifie si tous le formulaire est rempli
+    $erreur .= "1";
+    // header("Location: index.php?erreur=1"); // si un seul champs est vide on retourne une erreur
+    // exit;
   }
-  else {
+  else { //si tout est remplis
     $_POST = cleanFormEntries($_POST);
     $nom = $_POST["nameRegister"];
     $password = $_POST["passwordRegister"];
+    $confirmPassword = $_POST["confirm_passwordRegister"];
 
-    //teste du nom
+    //2 - teste du nom
     if (!preg_match("#[a-zA-Z0-9_]{3,}#", $nom)) {
-      //echo $nom;
-      header("Location: index.php?erreur=2");
-      exit;
+      $erreur .= "2";
+      // header("Location: index.php?erreur=2");
+      // exit;
     }
     else{echo $nom;}
 
-    //teste du password
-    //^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{6,}$
+    //3 - teste du password
     if (!preg_match("#(?=.*\d)(?=.*[A-Z]).{6,}$#", $password)) {
-      //echo $nom;
-      header("Location: index.php?erreur=3");
-      exit;
+      $erreur .= "3";
+      // header("Location: index.php?erreur=3");
+      // exit;
     }
     else{echo $password;}
 
-    //teste de confirmation password
-    //^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{6,}$
-    if (!preg_match("#(?=.*\d)(?=.*[A-Z]).{6,}$#", $password)) {
-      //echo $nom;
-      header("Location: index.php?erreur=3");
-      exit;
+    //4 -teste de confirmation password
+    echo "psw :".$password;
+    echo "confirmpsw :".$confirmPassword;
+    if ($confirmPassword != $password) { //si les mots de passe sont différents
+      $erreur .= "4";
+      // header("Location: index.php?erreur=4");
+      // exit;
     }
     else{echo $password;}
 
+    header("Location: index.php?erreur=".$erreur);
+    exit;
 
   }
-
+  header("Location: index.php?erreur=".$erreur);
+  exit;
 }
 else{
-  header("Location: index.php?erreur=0");
+  $erreur .= "0";
+  header("Location: index.php?erreur=".$erreur);
   exit; // important : stop l'execution du script
 }
 

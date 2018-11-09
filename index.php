@@ -1,17 +1,44 @@
 <?php
   include("Template/header.php");
+  if (isset($_GET["erreur"])) {
+    $erreur = $_GET["erreur"]; //code erreur
+    $tabErreur = str_split($erreur); //tableau des codes erreurs
+  }
+
+    $msgErreurs = getErreurs();
+    $msgErreur; //tableau des messages erreurs
+
+    foreach ($msgErreurs as $key => $value) {
+      foreach ($tabErreur as $key2 => $value2) {
+        if ($value["id"] == $value2) {
+          echo $value["msg"]."<br>";
+        }
+      }
+    }
+
+    
+  }
 ?>
 
   <div class="container d-flex flex-column justify-content-center align-items-center height50vh">
     <div class="container w-50">
       <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">S'identifier</a>
-          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">S'inscrire</a>
+          <?php if (isset($erreur)) { ?> //affiche le formulaire d'inscription
+            <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">S'identifier</a>
+            <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">S'inscrire</a>
+          <?php } else { ?> //affiche le formulaire de connexion
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">S'identifier</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">S'inscrire</a>
+          <?php } ?>
         </div>
       </nav>
       <div class="tab-content mt-3" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <?php if (isset($erreur)) { ?>
+          <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <?php } else { ?>
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <?php } ?>
           <!-- Formulaire de connexion -->
           <form class="needs-validation text-right" action="login.php" method="post" novalidate >
             <div class="form-group text-left">
@@ -40,7 +67,12 @@
              ?>
           </form>
         </div>
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <?php if (isset($erreur)) { ?>
+          <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <?php } else { ?>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <?php } ?>
+
           <form class="needs-validation text-right" action="register.php" method="post" novalidate >
             <div class="form-group text-left">
               <!-- <label for="exampleInputName">Votre nom</label> -->

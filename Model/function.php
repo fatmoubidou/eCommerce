@@ -1,5 +1,15 @@
 <?php
 
+function getErreurs() {
+  return [
+    ["id" => 1, "msg" => "Tous les champs du formulaire sont obligatoires"],
+    ["id" => 2, "msg" => "Votre nom doit comporter 3 caractères MINIMUM"],
+    ["id" => 3, "msg" => "Le mot de passe doit comporter 6 caractères minimum, au moins une lettre majuscule et au moins un chiffre"],
+    ["id" => 4, "msg" => "Le mot de passe et sa confirmation doivent être identiques."],
+    ["id" => 0, "msg" => "Une erreur est survenue"],
+  ];
+}
+
 function getUsers() {
   return [
     ["name" => "Jean-luc", "password" => "Simplon1478963", "status" => "admin", "sexe" => "homme"],
