@@ -23,7 +23,7 @@
       <div class="container">
         <div class="d-flex justify-content-end p-2 bd-highlight">
           <?php
-              if (isset($_SESSION)) {
+              if (isset($_SESSION["user"])) {
                 echo "<a href='logout.php' class='btn btn-secondary'>Déconnexion</a>";
               }
            ?>

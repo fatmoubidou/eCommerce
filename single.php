@@ -11,7 +11,10 @@
   //var_dump($products);
   $single = intval($_GET["id"]);
   //var_dump($single);
-  $msg = $_GET["msg"];
+  if (isset($_GET["msg"])) {
+    $msg = $_GET["msg"];
+  }
+
 ?>
 
   <div class="row">
