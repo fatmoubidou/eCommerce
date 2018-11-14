@@ -12,12 +12,8 @@ function valueFormEntries($form) {
     if (!$value || $value == "0") {
       $result = false;
       return $result;
-      exit;
+      break;
     }
-    else {
-      $result= true;
-    }
-
   }
 return $result;
 }

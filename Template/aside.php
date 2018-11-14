@@ -1,5 +1,4 @@
 <?php
-
 //var_dump($_SESSION["basket"]);
 $total = 0;
  ?>

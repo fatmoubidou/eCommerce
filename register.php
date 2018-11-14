@@ -36,7 +36,7 @@ if (!empty($_POST)) { //si $_POST existe
     //4 -teste de confirmation password
     //echo "psw :".$password;
     //echo "confirmpsw :".$confirmPassword;
-    if ($confirmPassword != $password) { //si les mots de passe sont différents
+    if ($confirmPassword !== $password) { //si les mots de passe sont différents
       $erreur .= "4";
     }
     else{echo $password;}
@@ -45,7 +45,7 @@ if (!empty($_POST)) { //si $_POST existe
       header("Location: index.php?erreur=".$erreur); //erreur 2, 3 ou 4
       exit;
     }else {
-      header("Location: index.php?log=in"); //erreur 2, 3 ou 4
+      header("Location: index.php?log=in"); 
       exit;
     }
 

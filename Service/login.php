@@ -10,7 +10,7 @@ function userIsRegistered($users, $form) {
 
 function startUserSession($user) {
   session_start();
-  $_SESSION["user"] = $user;
-  $_SESSION['basket']=array();
+  $_SESSION["user"] = $user; //creation de la session User
+  $_SESSION['basket']=array(); //creation de la session Basket (panier)
 }
 ?>
